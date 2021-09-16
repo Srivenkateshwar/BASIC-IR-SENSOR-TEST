@@ -1,0 +1,36 @@
+int irsensor_1 = 2;
+int LED_1 = 4;
+int irsensor_2 = 3;
+int LED_2 = 5;
+void setup() {
+  pinMode(irsensor_1, INPUT);
+  pinMode(irsensor_2, INPUT);
+  pinMode(LED_1, INPUT);
+  pinMode(LED_2, INPUT);
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  int statusSensor_1 = digitalRead (irsensor_1);
+  int statusSensor_2 = digitalRead (irsensor_2);
+  if (statusSensor_1 == 1 && statusSensor_2== 0 )
+  {
+    digitalWrite(LED_1, LOW);
+     digitalWrite(LED_2, HIGH);
+  }
+  else if (statusSensor_2 == 1 && statusSensor_1== 0)
+  { 
+    digitalWrite(LED_2, LOW);
+    digitalWrite(LED_1, HIGH);
+  }
+  else 
+  if (statusSensor_2 == 1 && statusSensor_1 == 1 )
+  { digitalWrite(LED_1, LOW);
+    digitalWrite(LED_2, LOW);
+  }
+  else
+  {   digitalWrite(LED_1, HIGH);
+    digitalWrite(LED_2, HIGH);
+  }
+}
